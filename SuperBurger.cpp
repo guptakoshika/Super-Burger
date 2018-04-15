@@ -1,18 +1,22 @@
 #include<iostream> 
 #include<process.h>
-#include<windows.h>
-#include "conio.h"
 using namespace std;
 
 class functions{
 	public:
-	void displaybill(int bu,int ch)
+	int displaybill(int bu,int ch)
 	{
-		cout<<"Number of burgers ordered"<< bu << endl;
+		cout<<"Number of burgers ordered: "<< bu << endl;
 		if(ch==1)
-		cout<<"Total bill:  "<<bu*30<<endl;
+		{
+			cout<<"Total bill:  "<<bu*30<<endl;
+			return bu*30;
+		}
 		else if(ch==2)
-		cout<<"Total bill:  "<<bu*40<<endl;
+		{
+			cout<<"Total bill:  "<<bu*40<<endl;
+			return bu*40;
+		}
 	}
    	int mainmenu(){
 	   int n;
@@ -35,9 +39,10 @@ class functions{
 		cin>>n;
 		return n;
 	}
-	void order(int buns,int pattes,int cheese)
+	int order(int buns,int pattes,int cheese)
 {
-	int bu,ch;
+	int bu,ch,n;
+	char c;
 	cout<<"Enter the no. of burgers"<<endl;
 	cin>>bu;
 	while(buns<2*bu)
@@ -73,7 +78,18 @@ class functions{
 			cin>>bu;
 		}
 	 }
-	 displaybill(bu,ch);
+	 cout << "Confirm Order?" ;
+	 cin >> c;
+	 if(c=='y')
+	 {
+	 	n=displaybill(bu,ch);	
+		 return n;
+	 }
+		else
+		{
+			int order(int buns,int pattes,int cheese);
+		}
+
 }
 void dstock(int buns,int pattes, int cheese)
 {
@@ -88,11 +104,13 @@ class station1 : virtual public functions{
 		int n,bun,pat,che;
 	void st1()
 	{
+		bun,pat,che =0;
 		while(1){
 		n=mainmenu();
 			switch(n)
 		{
-			case 1:	rec();
+			case 1:	
+			rec();
 				break;
 			case 2:
 				order(bun,pat,che);
@@ -121,8 +139,10 @@ class station1 : virtual public functions{
 class station2 : virtual public functions{
 	int n,bun,pat,che;
 	public:
-		void st2(){
-			n=mainmenu();
+		void st2()
+	{
+		while(1){
+		n=mainmenu();
 			switch(n)
 		{
 			case 1:	rec();
@@ -136,7 +156,8 @@ class station2 : virtual public functions{
 			case 4: exit(0);
 			default:cout<<"Invalid choice";
       	}
-		}
+      }
+	}
 			void rec()
 {
 	cout<<"Enter number of buns"<<endl;
@@ -154,14 +175,14 @@ class station3 : virtual public functions{
 	public:
 	int n,bun,pat,che;
 		void st3()
-		{
-			n=mainmenu();
+	{
+		while(1){
+		n=mainmenu();
 			switch(n)
 		{
 			case 1:	rec();
 				break;
 			case 2:
-				
 				order(bun,pat,che);
 				break;
 			case 3:	
@@ -170,8 +191,9 @@ class station3 : virtual public functions{
 			case 4: exit(0);
 			default:cout<<"Invalid choice";
       	}
-		}
-			void rec()
+      }
+	}
+void rec()
 {
 	cout<<"Enter number of buns"<<endl;
 	cin>>bun;
@@ -188,14 +210,15 @@ class station3 : virtual public functions{
 class station4 : virtual public functions{
 	public:
 		int n,bun,pat,che;
-		void st4(){
-			n=mainmenu();
+		void st4()
+	{
+		while(1){
+		n=mainmenu();
 			switch(n)
 		{
 			case 1:	rec();
 				break;
 			case 2:
-				
 				order(bun,pat,che);
 				break;
 			case 3:	
@@ -204,6 +227,7 @@ class station4 : virtual public functions{
 			case 4: exit(0);
 			default:cout<<"Invalid choice";
       	}
+      }
 	}
 		void rec()
 {
@@ -218,7 +242,7 @@ class station4 : virtual public functions{
 	che+=che;
 }
 };
-class head_office{
+class head_office: public station1, public station2, public station3, public station4{
 	public:
 };
  int main()
@@ -232,8 +256,9 @@ class head_office{
 	{
 		cout << "\n \n \n \n \n \n \n \n  ";
 		cout << "\t \t \t \t \t ";
-		cout << "enter your station number:" ;
+		cout << "Enter your station number:" ;
 		cin >> st;
+		cout << endl << endl;
 			switch(st)
 		{
 			case 1:
