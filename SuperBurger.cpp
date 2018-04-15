@@ -13,15 +13,18 @@ CursorPosition.X = x; // Locates column
 CursorPosition.Y = y; // Locates Row
 SetConsoleCursorPosition(console,CursorPosition); // Sets position for next thing to be printed 
 }
-
- int main()
-{
-	int n,st;
-	while(1)
+class functions{
+	public:
+	void displaybill(int bu,int ch)
 	{
-		gotoXY(35,5);
-		cout << "enter your station number:" << endl;
-		cout << st;
+		cout<<"Number of burgers ordered"<<endl;
+		if(ch==1)
+		cout<<"Total bill  "<<bu*30<<endl;
+		else if(ch==2)
+		cout<<"Total bill  "<<bu*40<<endl;
+	}
+   	void mainmenu(){
+	   int n;
 		gotoXY(35,8);
 		cout << "WELCOME TO SUPER BURGER" << endl;
 		gotoXY(33,9);
@@ -55,6 +58,51 @@ SetConsoleCursorPosition(console,CursorPosition); // Sets position for next thin
 				break;
 			case 4: exit(0);
 			default:cout<<"Invalid choice";
+      	}
+	}
+};
+class station1 : virtual public functions{
+	public:
+	void st1()
+	{
+		mainmenu();
+	}
+};
+class station2 : virtual public functions{
+	public:
+};
+class station3 : virtual public functions{
+	public:
+};  
+	
+class station4 : virtual public functions{
+	public:
+};
+class head_office{
+	public:
+};
+ int main()
+{
+	int n,st;
+	while(1)
+	{	gotoXY(35,5);
+		cout << "enter your station number:" << endl;
+		cout << st;
+			switch(st)
+		{
+			case 1:
+				
+				break;
+			case 2:
+				break;
+			case 3:
+				
+				break;
+			case 4:
+				break;
+			default:
+			cout<<"Invalid choice";
+			exit(0);
       	}
     }
    return 0;
