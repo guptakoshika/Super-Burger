@@ -50,11 +50,13 @@ class functions{
 		cout<<"Not enough buns in stock, Buns left:"<<" "<<buns<<" Re-enter burger's according to the stock";
 		cin>>bu;
 	}
+		buns = buns - 2;
 	while(pattes<bu)
 	{
 		cout<<"Not enough pattes in stock, Pattes left:"<<" "<<pattes<<" Re-enter the burger's according to the stock"<<endl;
 		cin>>bu;
 	}
+		pattes = pattes - 1;
 	cout<<"Enter choice(1 for single cheese slice or 2 for double cheese)"<<endl;
 	cin>>ch;
 	while(ch<1||ch>2)
@@ -68,6 +70,7 @@ class functions{
 		{
 			cout<<"Not enough cheese slices in stock,cheese slices left: "<<cheese<<" Re-enter the burger according to the stock"<<endl;
 			cin>>bu;
+			cheese = cheese -1;
 		}
 	}
 	if(ch==2)
@@ -76,6 +79,7 @@ class functions{
 		{
 			cout<<"Not enough cheese slices in stock,cheese slices left: "<<cheese<<" Re-enter the burger according to the stock"<<endl;
 			cin>>bu;
+			cheese = cheese-2;
 		}
 	 }
 	 cout << "Confirm Order?" ;
@@ -104,7 +108,7 @@ class station1 : virtual public functions{
 		int n,bun,pat,che;
 	void st1()
 	{
-		bun,pat,che =0;
+		bun,pat,che=2;
 		while(1){
 		n=mainmenu();
 			switch(n)
@@ -244,6 +248,43 @@ class station4 : virtual public functions{
 };
 class head_office: public station1, public station2, public station3, public station4{
 	public:
+	public:
+		int total,n;
+		display()
+		{
+			cout << "\t \t \t \t \t ";
+			cout << "WELCOME TO SUPER BURGER- HEAD OFFICE" << endl;
+			cout << "\t \t \t \t \t ";
+			cout << "________________________________" << endl;
+			cout << "\t \t \t \t";
+			cout << "Enter station number to know sales details and 0 for all:";
+			cin >> n;
+			switch(n)
+			{
+			case 0:
+				cout << "\t \t \t \t \t ";
+				cout << "Sales from all station is Rs: "<<total;
+				break;
+			case 1:
+				cout << "\t \t \t \t \t ";
+				cout << "Sales from all station1 is Rs: "<< sales1;
+				break;
+			case 2:
+				cout << "\t \t \t \t \t ";
+				cout << "Sales from all station2 is Rs: "<< sales2;
+				break;
+			case 3:
+				cout << "\t \t \t \t \t ";
+				cout << "Sales from all station3 is Rs: "<< sales3;
+				break;
+			case 4:
+				cout << "\t \t \t \t \t ";
+				cout << "Sales from station4 is Rs: "<< sales4;
+				break;
+			default :
+				exit(0);
+			}
+		}
 };
  int main()
 {
