@@ -284,12 +284,12 @@ class head_office: public station1, public station2, public station3, public sta
 	{
 		cout << "\n \n \n \n \n \n \n \n  ";
 		cout << "\t \t \t \t \t ";
-		cout << "Enter your station number:" ;
+		cout << "Enter your station number: (5 for head office and 0 to exit) " ;
 		cin >> st;
 		cout << endl << endl;
 			switch(st)
 		{
-			case 0:
+			case 5:
 				h.display();
 				break;
 			case 1:
@@ -304,9 +304,10 @@ class head_office: public station1, public station2, public station3, public sta
 			case 4:
 				s4.st4();
 				break;
+			case 0:
+				exit(0);	
 			default:
 			cout<<"Invalid choice";
-			exit(0);
 	}
     }
    return 0;
