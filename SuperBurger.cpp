@@ -121,6 +121,7 @@ class station1 : public virtual functions{
 		int n,bun,pat,che,sales1;
 		station1()
 		{
+			sales1=0;
 			bun=2;
 			pat = 1;
 			che = 2;
@@ -151,6 +152,7 @@ class station2 :  public virtual functions{
 	public:
 		int n,bun,pat,che,sales2;
 		station2(){
+			sales4=0;
 			bun=2;
 			pat = 1;
 			che = 2;
@@ -179,6 +181,7 @@ class station3 : public virtual functions{
 	public:
 	int n,bun,pat,che,sales3;
 	station3(){
+			sales3=0;
 			bun=2;
 			pat = 1;
 			che = 2;
@@ -208,6 +211,7 @@ class station4 : public virtual functions{
 	public:
 		int n,bun,pat,che,sales4;
 		station4(){
+			sales4=0;
 			bun=2;
 			pat = 1;
 			che = 2;
@@ -283,8 +287,8 @@ class head_office: public station1, public station2, public station3, public sta
 	while(1)
 	{
 		cout << "\n \n \n \n \n \n \n \n  ";
-		cout << "\t \t \t \t \t ";
-		cout << "Enter your station number: (5 for head office and 0 to exit) " ;
+		cout << "\t \t \t ";
+		cout << "Enter your station number(0 to exit and 5 for head office):" ;
 		cin >> st;
 		cout << endl << endl;
 			switch(st)
@@ -305,7 +309,7 @@ class head_office: public station1, public station2, public station3, public sta
 				s4.st4();
 				break;
 			case 0:
-				exit(0);	
+				exit(0);
 			default:
 			cout<<"Invalid choice";
 	}
