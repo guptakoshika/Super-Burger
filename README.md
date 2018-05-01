@@ -1,3 +1,4 @@
 # Super-Burger
 The project is based on a burger franchise named Super Burger. The project when executed will open a window greeting prompting you to enter station number. On selection of the station, the program will ask the user to select from options varying from add the stock, place an order, stock left or to exit the program.
                While the head office will show the all the sales form the station present. The program allows the user to add the stock to a station i.e. buns, patties, cheese slices. Placing order allows the user to select number of burgers to order and select cheese type. Stock left option can be used to check how much of the stock is left in the specific station number.
+![screenshot 60](https://user-images.githubusercontent.com/32263097/39461896-7e6970e0-4d2b-11e8-92ce-16952c07a80e.png)
